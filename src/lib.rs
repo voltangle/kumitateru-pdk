@@ -1,4 +1,4 @@
-mod cli;
+pub mod cli;
 
 use anyhow::Result;
 use crate::cli::*;
