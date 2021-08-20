@@ -1,8 +1,8 @@
 pub mod cli;
 
-use anyhow::Result;
 use crate::cli::*;
 
+#[repr(C)]
 pub struct Kumitateru {
     /// Subscribes a function to
     /// an event in any place
@@ -26,4 +26,3 @@ pub struct Kumitateru {
 //     "clean::before",
 //     "clean::after"
 // ];
-
