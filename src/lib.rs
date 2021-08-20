@@ -2,17 +2,21 @@ pub mod cli;
 
 use crate::cli::*;
 
-#[repr(C)]
-pub struct Kumitateru {
-    /// Subscribes a function to
-    /// an event in any place
-    /// Kumitateru allows to extend.
-    pub subscribe: Fn(&str, Fn()),
-
-    /// Creates a custom command, which can
-    /// be called like any other command in
-    /// Kumitateru.
-    pub create_command: Fn(command::Command),
+pub struct PluginConfig {
+    /// Plugin name
+    name: String,
+    /// Plugin version
+    version: String,
+    /// Plugin author
+    author: String,
+    /// Subscriptions to Kumitateru's events.
+    /// Creates a new event, and
+    /// It is basically a vector, which contains
+    /// tuples of two strings. The first string is
+    /// the event you call your function, and
+    /// second string is the name of your function.
+    /// Note that your function **must be public**.
+    subscriptions: Vec<(String, String)>
 }
 
 // static AVAILABLE_COMMANDS: [&str; 9] = [
