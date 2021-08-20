@@ -7,7 +7,7 @@ pub struct Kumitateru {
     /// Subscribes a function to
     /// an event in any place
     /// Kumitateru allows to extend.
-    pub subscribe: fn(&str, fn()),
+    pub subscribe: fn(&str, dyn Fn()),
 
     /// Creates a custom command, which can
     /// be called like any other command in
