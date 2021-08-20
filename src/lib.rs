@@ -7,12 +7,12 @@ pub struct Kumitateru {
     /// Subscribes a function to
     /// an event in any place
     /// Kumitateru allows to extend.
-    subscribe: fn(&str, fn()),
+    pub subscribe: fn(&str, fn()),
 
     /// Creates a custom command, which can
     /// be called like any other command in
     /// Kumitateru.
-    create_command: fn(command::Command),
+    pub create_command: fn(command::Command),
 }
 
 // static AVAILABLE_COMMANDS: [&str; 9] = [
