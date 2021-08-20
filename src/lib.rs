@@ -2,6 +2,7 @@ pub mod cli;
 
 use crate::cli::*;
 
+#[derive(Debug)]
 pub struct PluginConfig {
     /// Plugin name
     pub name: String,
