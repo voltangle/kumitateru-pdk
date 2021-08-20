@@ -2,6 +2,11 @@
 name = "kumitateru_pdk"
 version = "0.5.0"
 edition = "2018"
+license = "GPL-3.0"
+description = "A Plugin Development Kit (PDK) for Kumitateru build system."
+repository = "https://github.com/ggoraa/kumitateru-pdk"
+homepage = "https://github.com/ggoraa/kumitateru-pdk"
+readme = "README.md"
 
 [dependencies]
 libloading = "0.7.*"
