@@ -10,14 +10,17 @@ pub struct PluginConfig {
     pub version: String,
     /// Plugin author
     pub author: String,
-    /// Subscriptions to Kumitateru's events.
+    /// Subscriptions to kumitateru's events.
     /// Creates a new event, and
     /// It is basically a vector, which contains
     /// tuples of two strings. The first string is
     /// the event you call your function, and
     /// second string is the name of your function.
     /// Note that your function **must be public**.
-    pub subscriptions: Vec<(String, String)>
+    pub subscriptions: Vec<(String, String)>,
+    /// Commands, that can be called as a kumitateru
+    /// subcommand.
+    pub cli_commands: Vec<Command>
 }
 
 // static AVAILABLE_COMMANDS: [&str; 9] = [
