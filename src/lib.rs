@@ -1,9 +1,7 @@
-pub mod cli;
+use clap::SubCommand;
 
-use crate::cli::*;
-
-#[derive(Debug)]
-pub struct PluginConfig {
+#[derive(Debug, Clone)]
+pub struct PluginConfig<'a> {
     /// Plugin name
     pub name: String,
     /// Plugin version
@@ -20,7 +18,7 @@ pub struct PluginConfig {
     pub subscriptions: Vec<(String, String)>,
     /// Commands, that can be called as a kumitateru
     /// subcommand.
-    pub cli_commands: Vec<Command>
+    pub cli_commands: Vec<SubCommand<'a>>
 }
 
 // static AVAILABLE_COMMANDS: [&str; 9] = [
