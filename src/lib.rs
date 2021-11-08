@@ -1,6 +1,6 @@
 use clap::App;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct PluginConfig<'a, 'b> {
     /// Plugin name
     pub name: String,
