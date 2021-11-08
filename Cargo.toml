@@ -1,5 +1,5 @@
 [package]
-name = "kumitateru_pdk"
+name = "kumitateru-pdk"
 version = "0.5.0"
 edition = "2018"
 license = "GPL-3.0"
