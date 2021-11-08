@@ -1,7 +1,7 @@
-use clap::SubCommand;
+use clap::App;
 
 #[derive(Debug, Clone)]
-pub struct PluginConfig<'a> {
+pub struct PluginConfig<'a, 'b> {
     /// Plugin name
     pub name: String,
     /// Plugin version
@@ -18,7 +18,7 @@ pub struct PluginConfig<'a> {
     pub subscriptions: Vec<(String, String)>,
     /// Commands, that can be called as a kumitateru
     /// subcommand.
-    pub cli_commands: Vec<SubCommand<'a>>
+    pub cli_commands: Vec<App<'a, 'b>>
 }
 
 // static AVAILABLE_COMMANDS: [&str; 9] = [
