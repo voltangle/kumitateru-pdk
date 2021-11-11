@@ -1,7 +1,10 @@
-use clap::App;
+type CliCommandArgs = Vec<CliCommandArg>;
+type CliCommands = Vec<CliCommand>;
+type EventSubscription = (String, String);
+type EventSubscriptions = Vec<EventSubscription>;
 
 #[derive(Clone)]
-pub struct PluginConfig<'a, 'b> {
+pub struct PluginConfig {
     /// Plugin name
     pub name: String,
     /// Plugin version
@@ -15,20 +18,20 @@ pub struct PluginConfig<'a, 'b> {
     /// the event you call your function, and
     /// second string is the name of your function.
     /// Note that your function **must be public**.
-    pub subscriptions: Vec<(String, String)>,
+    pub subscriptions: EventSubscriptions,
     /// Commands, that can be called as a kumitateru
     /// subcommand.
-    pub cli_commands: Vec<App<'a, 'b>>
+    pub cli_commands: CliCommands
 }
 
-// static AVAILABLE_COMMANDS: [&str; 9] = [
-//     "build::before",
-//     "build::after",
-//     "run::build::before",
-//     "run::build::after",
-//     "run::execution::after",
-//     "package::before",
-//     "package::after",
-//     "clean::before",
-//     "clean::after"
-// ];
+pub struct CliCommand {
+    pub name: String,
+    pub args: CliCommandArgs
+}
+
+pub struct CliCommandArg {
+    pub name: String,
+    pub long_name: String,
+    pub value_name: String,
+    pub takes_value: bool
+}
