@@ -9,4 +9,3 @@ homepage = "https://github.com/ggoraa/kumitateru-pdk"
 readme = "README.md"
 
 [dependencies]
-clap = "2.33.*"
