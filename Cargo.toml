@@ -5,7 +5,8 @@ edition = "2018"
 license = "GPL-3.0"
 description = "A Plugin Development Kit (PDK) for Kumitateru build system."
 repository = "https://github.com/ggoraa/kumitateru-pdk"
-homepage = "https://github.com/ggoraa/kumitateru-pdk"
+homepage = "https://github.com/ggoraa/kumitateru/wiki/Developing-plugins"
 readme = "README.md"
 
 [dependencies]
+abi_stable = "0.10.3"
