@@ -1,5 +1,5 @@
-type CommandArgs = Vec<CommandArgDef>;
-type Commands = Vec<Command>;
+pub type CommandArgs = Vec<CommandArgDef>;
+pub type Commands = Vec<Command>;
 
 #[derive(Debug, Clone)]
 pub struct Command {
