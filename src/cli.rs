@@ -1,15 +1,15 @@
-pub type CommandArgs = Vec<CommandArgDef>;
+pub type CommandArgsDecl = Vec<CommandArgDecl>;
 pub type Commands = Vec<Command>;
 
 #[derive(Debug, Clone)]
 pub struct Command {
     pub name: String,
-    pub args: CommandArgs,
+    pub args: CommandArgsDecl,
     pub func: fn(Vec<CommandArgDef>),
 }
 
 impl Command {
-    fn new(name: &str, args: CommandArgs, func: fn(Vec<CommandArgDef>)) -> Self {
+    fn new(name: &str, args: CommandArgsDecl, func: fn(Vec<CommandArgDef>)) -> Self {
         Self {
             name: name.to_string(),
             args,
