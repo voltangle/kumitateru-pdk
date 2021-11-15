@@ -1,23 +1,7 @@
 pub mod cli;
 
-type EventSubscription = (String, String, String);
-
-pub struct EventSubscriptions {
-    /// Only for safety and ease of use purpose
-    pub(in kumitateru) currently_writing_plugin: String,
-    pub(in kumitateru) list: Vec<EventSubscription>,
-}
-
-impl EventSubscriptions {
-    /// Pushes a new subscriber.
-    fn push(&mut self, name: &str, func: &str) {
-        self.list.push((
-            self.currently_writing_plugin.clone(),
-            name.to_string(),
-            func.to_string(),
-        ));
-    }
-}
+type EventSubscription = (String, String);
+type CliCommands = (String, String);
 
 /**
  * This struct will be passed to an activate() function
@@ -29,7 +13,7 @@ pub struct PluginEnvironment {
     /// Subscriptions to kumitateru's events.
     /// To create new subscriptions, use push()
     /// function.
-    pub subscriptions: EventSubscriptions,
+    pub subscriptions: Vec<EventSubscription>,
     pub cli_commands: CliCommands,
 }
 
@@ -53,7 +37,7 @@ pub struct PluginConfig {
     /// the event you call your function, and
     /// second string is the name of your function.
     /// Note that your function **must be public**.
-    pub subscriptions: EventSubscriptions,
+    pub subscriptions: EventSubscription,
     /// Commands, that can be called as a kumitateru
     /// subcommand.
     pub cli_commands: CliCommands,

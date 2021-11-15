@@ -1,15 +1,13 @@
 type CommandArgs = Vec<CommandArgDef>;
 type Commands = Vec<Command>;
 
-#[derive(Debug)]
-#[no_mangle]
+#[derive(Debug, Clone)]
 pub struct Command {
     pub name: String,
     pub args: CommandArgs,
     pub func: fn(Vec<CommandArgDef>),
 }
 
-#[no_mangle]
 impl Command {
     fn new(name: &str, args: CommandArgs, func: fn(Vec<CommandArgDef>)) -> Self {
         Self {
@@ -25,7 +23,7 @@ impl Command {
  * in `func` member variable in [Command](Command) struct.
  * Struct name is "decoded" as Command arg definition.
  */
-#[no_mangle]
+#[derive(Debug, Clone)]
 pub struct CommandArgDef {
     pub name: String,
     pub value: String,
@@ -35,7 +33,7 @@ pub struct CommandArgDef {
  * This struct is used to declare command arguments. See
  * [Command](Command) struct for more info
  */
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct CommandArgDecl {
     pub name: String,
     pub long_name: Option<String>,
